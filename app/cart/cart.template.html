@@ -1,0 +1,13 @@
+<ul class="list-group">
+    <li class="list-group-item" ng-repeat="product in cart track by $index" >
+        <div class="row">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-2">
+                <p>{{product.name}}</p>
+                <p>{{product.quantity}}</p>
+                <img class="productImage thumbnail zoom pull-left" ng-src="{{product.imageUrl}}">
+            </div>
+        </div>
+    </li>
+</ul>
