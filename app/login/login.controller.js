@@ -31,7 +31,7 @@ angular.module("login").
             var newCustomer = {
 
                 firstName: $scope.customer.firstName,
-                lastName: $scope.customer.lastName,
+                surName: $scope.customer.surName,
                 email: $scope.customer.email,
                 password: $scope.customer.password,
                 phone: $scope.customer.phone,
