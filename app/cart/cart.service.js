@@ -39,6 +39,7 @@ angular.module("cart")
                 }
                 order.customerId = internalId;
                 order.products = products;
+
                 return $http.post("http://nackbutik.azurewebsites.net/api/order", order);
 
             },
@@ -50,9 +51,9 @@ angular.module("cart")
                 return totalSum;
             },
             emptyCart: function () {
-                console.log(shopCart);
-                shopCart = [];
-                console.log(shopCart);
+                for (var i = 0; i < shopCart.length; i++){
+                    shopCart.splice(i, shopCart.length)
+                }
             }
         }
     }]);

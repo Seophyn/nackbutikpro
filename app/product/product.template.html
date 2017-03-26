@@ -25,6 +25,7 @@
             </div>
         </div>
 
+
 </div>
 
 
@@ -49,7 +50,7 @@
                 </div>
             <div id="image-box" class="col-md-4">
                 <img class="productImage thumbnail zoom pull-left" ng-src="{{product.imageUrl}}">
-                <button title = "{{isLoggedIn  ? '' : 'Log in to add items to cart.'}}"  class="btn btn-success" ng-controller="cartController" ng-disabled="!isLoggedIn || product.unitsInStock == 0"
+                <button title = "{{isLoggedIn  ? '' : 'Log in to add items to cart.'}}"  class="{{product.unitsInStock == 0 ? 'btn btn-danger' : 'btn btn-success'}}" ng-controller="cartController" ng-disabled="!isLoggedIn || product.unitsInStock == 0"
                         ng-click="addToCart(product)">Add to cart</button><br>
                 <span ng-if="product.unitsInStock > 0"># in stock: {{product.unitsInStock}}</span>
                 <span ng-if="product.unitsInStock == 0">The product is currently out of stock.</span> <br><br>

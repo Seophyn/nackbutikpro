@@ -7,7 +7,14 @@ angular.module("cart").
         $scope.checkout = function () {
             $scope.orderText = "";
             cartService.checkout($rootScope.internalcustomerId).then(function success() {
-                $scope.orderText = "Order received! Thank you for your purchase."
+                if(cartService.returnCart().length == 0){
+                    $scope.orderText = "You do not have any products in your cart, therefor order cannot process."
+                }
+                else {
+                    $scope.orderText = "Order received! Thank you for your purchase.";
+                    cartService.emptyCart();
+                    $scope.totalSum = 0;
+                }
 
             }, function error() {
                 $scope.orderText = "Something went wrong while trying to process your order. Please try again in a few minutes."
@@ -25,5 +32,6 @@ angular.module("cart").
 
         $scope.emptyCart = function () {
             cartService.emptyCart();
-        }
+            $scope.totalSum = 0;
+        };
     }]);

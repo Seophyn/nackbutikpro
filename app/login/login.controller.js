@@ -46,11 +46,15 @@ angular.module("login").
 
             };
 
-            loginService.createLogin(newCustomer).then(function () {
+            loginService.createLogin(newCustomer).then(function successCreate() {
 
                 $location.path("/login");
 
-            });
+            },function failCreate() {
+                $scope.createErrorText = "Failed to create customer."
+
+                }
+            );
         }
 
     }]);

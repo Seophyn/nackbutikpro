@@ -1,4 +1,4 @@
-<ul class="list-group">
+<ul ng-click="orderText = ''" class="list-group">
     <li class="list-group-item" ng-repeat="product in cart track by $index" >
         <div class="row">
             <div class="col-md-4">
@@ -19,7 +19,7 @@
             <div class="col-md-2">
                 <p align="left">Total Sum: {{totalSum}}kr</p>
                 <button class="btn btn-success" ng-click="checkout()">Checkout</button>
-                <button class="btn btn-success" ng-click="emptyCart()">Empty Cart</button>
+                <button class="btn btn-success" ng-click="emptyCart()">Empty Cart</button><br>
                 {{orderText}}
             </div>
         <div class="col-md-4">
