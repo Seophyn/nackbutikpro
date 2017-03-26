@@ -27,16 +27,19 @@ angular.module("cart")
             returnCart: function () {
                 return shopCart;
             },
-            checkout: function () {
+            checkout: function (internalId) {
                 var products = [];
+                var order = {};
 
                 for (var i = 0; i < shopCart.length; i++){
                     var productObject = {};
                     productObject.productId = shopCart[i].id;
                     productObject.quantity = shopCart[i].quantity;
                     products.push(productObject);
-                    console.log(products);
                 }
+                order.customerId = internalId;
+                order.products = products;
+                return $http.post("http://nackbutik.azurewebsites.net/api/order", order);
 
             },
             totalSumCalc: function () {

@@ -21,7 +21,11 @@ angular.module("login").
                 $location.path("/");
                 console.log($rootScope.isLoggedIn)
                 
-            })
+            }, function failedLogin() {
+                $scope.loginErrorText = "Failed to log in."
+
+                }
+            )
         };
 
         $scope.customer = {};

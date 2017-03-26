@@ -12,6 +12,7 @@
             <input type="password" name="password" id="password" class="form-control" ng-model="password" required />
             <span ng-show="form.password.$touched && form.password.$invalid" class="help-block">Password needed to log in.</span>
         </div>
+        <p>{{loginErrorText}}</p>
 
         <div class="form-actions">
             <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary" ng-click="doLogin(username, password)">Login</button>
