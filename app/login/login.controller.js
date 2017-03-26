@@ -3,10 +3,21 @@ angular.module("login").
     controller("loginController", ["$scope","$rootScope", "$location", "loginService",
     function ($scope, $rootScope, $location, loginService) {
 
+        $scope.logOut = function () {
+            console.log($rootScope.isLoggedIn);
+            $rootScope.isLoggedIn = false;
+            console.log($rootScope.isLoggedIn);
+
+            $location.path("/");
+
+        };
+
         $scope.doLogin = function (username, password) {
             console.log($rootScope.isLoggedIn);
-            loginService.userLogIn(username, password).then(function () {
+            loginService.userLogIn(username, password).then(function (response) {
                 $rootScope.isLoggedIn = true;
+                $rootScope.internalcustomerId = response.data.customerId;
+                console.log($rootScope.internalcustomerId);
                 $location.path("/");
                 console.log($rootScope.isLoggedIn)
                 

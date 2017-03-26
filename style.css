@@ -43,9 +43,16 @@
 }*/
 
 .row{
-    border: 1px solid;
 }
 
 #createUserTemplate{
+}
 
+.glyphicon-home{
+    font-size: 30px;
+}
+
+.cartImage{
+    width: 15%;
+    height: 15%;
 }

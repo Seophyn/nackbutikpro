@@ -4,10 +4,26 @@
             <div class="col-md-4">
             </div>
             <div class="col-md-2">
-                <p>{{product.name}}</p>
-                <p>{{product.quantity}}</p>
-                <img class="productImage thumbnail zoom pull-left" ng-src="{{product.imageUrl}}">
+                <p>Name: {{product.name}}</p>
+                <p>Quantity: {{product.quantity}}</p>
+            </div>
+            <div class="col-md-4">
+                <img align="left" class="cartImage" ng-src="{{product.imageUrl}}">
             </div>
         </div>
     </li>
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+            <div class="col-md-2">
+                <p align="left">Total Sum: {{totalSum}}kr</p>
+                <button class="btn btn-success" ng-click="checkout()">Checkout</button>
+                <button class="btn btn-success" ng-click="emptyCart()">Empty Cart</button>
+            </div>
+        <div class="col-md-4">
+
+        </div>
+    </div>
+    <div class="col-md-4">
+    </div>
 </ul>

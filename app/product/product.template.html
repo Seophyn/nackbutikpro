@@ -1,23 +1,35 @@
 <br>
 <br>
 
-<div>
-    <select ng-model = "selectedCategory">
-        <option value="">All</option>
-        <option ng-repeat="category in categories" value="{{category.id}}">
-            {{category.name}}
+<div class="row">
+    <div class="col-md-4">
+    </div>
+        <div class="col-md-2">
+            <div align="left" class="categoryMenu">
+                <select ng-model = "selectedCategory">
+                    <option value="">All</option>
+                    <option ng-repeat="category in categories" value="{{category.id}}">
+                        {{category.name}}
 
-        </option>
-    </select>
+                    </option>
+                </select>
+            </div>
+
+            <div align="left" class="searchBar">
+                <input ng-model="searchTerm" placeholder="Search Product">
+
+                </input>
+            </div>
+            <div class="col-md-4">
+
+            </div>
+        </div>
+
 </div>
 
 
 
-<div>
-    <input ng-model="searchTerm" placeholder="Search Product">
 
-    </input>
-</div>
 
 
 
@@ -40,7 +52,7 @@
                 <button title = "{{isLoggedIn  ? '' : 'Log in to add items to cart.'}}"  class="btn btn-success" ng-controller="cartController" ng-disabled="!isLoggedIn || product.unitsInStock == 0"
                         ng-click="addToCart(product)">Add to cart</button><br>
                 <span ng-if="product.unitsInStock > 0"># in stock: {{product.unitsInStock}}</span>
-                <span ng-if="product.unitsInStock == 0">The products is currently out of stock.</span> <br><br>
+                <span ng-if="product.unitsInStock == 0">The product is currently out of stock.</span> <br><br>
             </div>
         </div>
     </li>

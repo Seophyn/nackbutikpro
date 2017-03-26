@@ -1,5 +1,5 @@
 angular.module("cart")
-    .factory("cartService", [function () {
+    .factory("cartService", ["$http", function ($http) {
         var shopCart = [];
         return {
             addToCart: function (product) {
@@ -26,6 +26,30 @@ angular.module("cart")
             },
             returnCart: function () {
                 return shopCart;
+            },
+            checkout: function () {
+                var products = [];
+
+                for (var i = 0; i < shopCart.length; i++){
+                    var productObject = {};
+                    productObject.productId = shopCart[i].id;
+                    productObject.quantity = shopCart[i].quantity;
+                    products.push(productObject);
+                    console.log(products);
+                }
+
+            },
+            totalSumCalc: function () {
+                var totalSum = 0;
+                for (var i = 0; i < shopCart.length; i++){
+                    totalSum += shopCart[i].quantity * shopCart[i].price;
+                }
+                return totalSum;
+            },
+            emptyCart: function () {
+                console.log(shopCart);
+                shopCart = [];
+                console.log(shopCart);
             }
         }
     }]);
